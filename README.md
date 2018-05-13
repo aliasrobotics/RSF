@@ -37,14 +37,38 @@ _Text description dumping the table from [Shyvakov_MA_EEMCS (1).pdf](https://git
 ### 1.2 `Aspect`: Internal components
 #### 1.2.1 `Criteria`:  Availability of internal components from outside
 
-Objective –
-
 - `Objective`: identify internal hardware that is accessible from outside without a need
 - `Rationale`: Directly accessible internal components can be physically damaged, stolen, tampered or completely disabled
 - `Method`:
    - Inspect robots body and look for accessible components (e.g. HDD, embedded devices)
    - Open all doors which are not protected by locks and look for accessible components inside
-- `Notes`:  All cables should also remain inside of the robot. Some components require to be partially outside of the body frame (e.g. range finding systems, WI-FI/LTE antennas) in such a case only the required part should stick out, but not the whole component.
+- `Notes`:  *All cables should also remain inside of the robot. Some components require to be partially outside of the body frame (e.g. range finding systems, WI-FI/LTE antennas) in such a case only the required part should stick out, but not the whole component*.
+
+#### 1.2.2 `Criteria`: Monitoring and alert capabilities
+
+- `Objective`: identify whether rogue access to the internal hardware of the robot can be detected.
+- `Rationale`: Having no verification whether the internals of the robot were accessed or not means that attackers can easily tamper with any internal components or install a hardware Trojan unnoticed.
+- `Method`: ...
+   - Identify all parts of the frame that can be opened or removed to get access to the internal components
+   - Check whether there is an active (tamper switches) or passive (tamper evident screws and seals) monitoring
+capability present
+   - In case of active monitoring capability, verify that operator receives a real-time alert and the incident is
+being logged and acted upon by reviewing procedures
+- `Notes`: *Passive monitoring provides information upon inspection whether internals were accessed or not. However, there is still a time window between inspections when exploited robots can be abused*.
+
+## 2. `Layer`: Network
+### 2.1 `Aspect`: Internal network
+#### 2.1.1 `Criteria`: Monitoring and alert capabilities
+
+- `Objective`: identify whether internal network activity is monitored and alerts are issued based on known signatures or anomalies
+- `Rationale`: Proper security controls on the internal network might be quite hard and sometimes even impossible to implement due to hardware limitations or performance requirements. If all other security measures from this document are implemented properly, unauthorized access to the internal network is very unlikely. Therefore monitoring capability should be a sufficient security control.
+- `Method`: ...
+   - Enumerate internal network and find entry points (e.g. switch)
+   - Connect to the network and attempt to perform network based attacks (e.g. ARP poisoning, denial of service on a particular node) and verify whether an operator receives a real time alert and incidents are being logged and acted upon by reviewing procedures.
+- `Notes`: *If it is not possible to implement full network monitoring due to hardware limitations. At least there should a capability to
+detect new unauthorized devices on the network. In general thresholds on IDS of the internal network should be lower than on the external network. Because normal user is usually not supposed to connect to the internal network*.
+
+
 
 ## x. `Layer`: ...
 ### x.y `Aspect`: ...
