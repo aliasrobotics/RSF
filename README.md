@@ -18,7 +18,7 @@ _Text description dumping the table from [Shyvakov_MA_EEMCS (1).pdf](https://git
 
 ## 1. `Layer`: Physical
 
-### 1.1 `Aspect`: External ports
+### 1.1 `Aspect`: Ports
 #### 1.1.1 `Criteria`: Presence of external communication ports
 
 - `Objective`: identify presence of unprotected external ports.
@@ -26,15 +26,23 @@ _Text description dumping the table from [Shyvakov_MA_EEMCS (1).pdf](https://git
 - `Method`:
    - Inspect documentation, consult developers and inspect robot's body and components. Look for accessible ports (e.g. Ethernet, USB, CAN, etc.).
    - Open all doors, which are not protected by locks and look for ports inside.
+
+#### 1.1.2 `Criteria`: Presence of internal communication ports
+- `Objective`: identify presence of unprotected internal ports that typically correspond with sensors, user interfaces, power or other robot-related components.
+- `Rationale`: Unplugging robot components can potentially lead to the exposure of internal communication ports. Often, these internal communication ports are typically not protected in robots. This can which allow attackers in physical proximity to perform a variety of attacks and serve as an entry point.
+- `Method`:
+   - Open all doors, which are not protected by locks, even those protected and look for robot components and their buses.
    - Investigate ventilation holes and see if they are wide enough to access internal communication ports.
 
-#### 1.1.2 `Criteria`:  Security of external communication ports
+
+#### 1.1.3 `Criteria`:  Security of external and internal communication ports
 - `Objective`: verify if attackers can sniff or modify any critical data during communication with a docking station or by connecting to the ports.
-- `Rationale`: Unprotected external ports can let attackers in physical proximity to perform a variety of attacks and serve as an entry point for them
-- `Method`: ...
-   - Connect to the identified communication ports
-   - Is **authentication** required to use them (e.g. Network access control for Ethernet) and do accounts meet requirements from **section 4.1?** (_review this_)
-   - Try **communicating** with them, attempt fizzing to discover if robot’s state can be affected.
+- `Rationale`: Unprotected external and internal ports can let attackers in physical proximity to perform a variety of attacks and serve as an entry point for them.
+- `Method`:
+   - Try to connect to the identified communication ports:
+     - Is **authentication** required to use them (e.g. Network access control for Ethernet) and
+     - Is **encryption** used in the communication?     
+     - Try **communicating** with them, attempt fizzing to discover if robot’s state can be affected.
    - If a robot connects to a docking station to transfer some data, try to use **sniffers** to see how data exchange is being done (verify if some sensitive, configuration or control data is transferred in clear text)
 
 ### 1.2 `Aspect`: Components
@@ -270,6 +278,11 @@ Lockout threshold depends on the sensitivity of the service. In general, it shou
   - Test the application against OWASP Mobile Top 10
 
 
+## Glossary
+- **component**: a part of something that is discrete and identifiable with respect to combining with other parts to produce something larger (*source: ISO/IEC 24765*).
+  - *Note 1 to entry*: Component can be either software or hardware. Even a component that is mainly software or hardware can be referred to as a software or hardware component respectively.
+- **module**: component with special characteristics to facilitate system design, integration, interoperability, re-use.  
+- **interoperability**: the capability to communicate and transfer data among modules and combine modules physically in a manner that requires the user to have little or no knowledge of the unique characteristics of those modules.
 
 
 ## Simplified template to execute the assessment
