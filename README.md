@@ -25,7 +25,6 @@ _Text description dumping the table from [Shyvakov_MA_EEMCS (1).pdf](https://git
 
 ### 1.1 `Aspect`: Ports
 #### 1.1.1 `Criteria`: Presence of external communication ports
-
 - `Objective`: identify presence of unprotected external ports.
 - `Rationale`: Unprotected external ports can let attackers in physical proximity to perform a variety of attacks and serve as an entry point for them.
 - `Method`:
@@ -51,7 +50,6 @@ _Text description dumping the table from [Shyvakov_MA_EEMCS (1).pdf](https://git
 
 ### 1.2 `Aspect`: Components
 #### 1.2.1 `Criteria`:  Availability of internal components from outside
-
 - `Objective`: Identify internal hardware that is accessible from outside without a need.
 - `Rationale`: Directly accessible internal components can be physically damaged, stolen, tampered, removed or completely disabled causing the robot to misbehave. The most obvious example is the removal of critical sensors for the behavior of the robot.
 - `Method`:
@@ -60,7 +58,6 @@ _Text description dumping the table from [Shyvakov_MA_EEMCS (1).pdf](https://git
 - `Notes`:  *All cables should also remain inside of the robot. Some components require to be partially outside of the body frame (e.g. certain sensors such as range finders, or the antennas of certain wireless communication components) in such a case only the required part should stick out, but not the whole component*.
 
 #### 1.2.2 `Criteria`: Monitoring and alerting capabilities
-
 - `Objective`: identify whether rogue access to the internal hardware of the robot can be detected.
 - `Rationale`: Having no verification whether the internals of the robot were accessed or not means that attackers can easily tamper with any internal components or install a hardware *trojan* unnoticed.
 - `Method`:
@@ -78,19 +75,22 @@ _Text description dumping the table from [Shyvakov_MA_EEMCS (1).pdf](https://git
   - Review the logs of each individual component and look for anomalies.
 
 ## 2. `Layer`: Network
-### 2.1 `Aspect`: Internal network
-#### 2.1.1 `Criteria`: Monitoring and alert capabilities
+### 2.1 `Aspect`: Internal robot network
 
-- `Objective`: identify whether internal network activity is monitored and alerts are issued based on known signatures or anomalies
-- `Rationale`: Proper security controls on the internal network might be quite hard and sometimes even impossible to implement due to hardware limitations or performance requirements. If all other security measures from this document are implemented properly, unauthorized access to the internal network is very unlikely. Therefore monitoring capability should be a sufficient security control.
-- `Method`: ...
-   - Enumerate internal network and find entry points (e.g. switch)
-   - Connect to the network and attempt to perform network based attacks (e.g. ARP poisoning, denial of service on a particular node) and verify whether an operator receives a real time alert and incidents are being logged and acted upon by reviewing procedures.
-- `Notes`: *If it is not possible to implement full network monitoring due to hardware limitations. At least there should a capability to
-detect new unauthorized devices on the network. In general thresholds on IDS of the internal network should be lower than on the external network. Because normal user is usually not supposed to connect to the internal network*.
+#### 2.1.1 `Criteria`: Monitoring, alerting and response capabilities
+- `Objective`: identify whether internal network activity is monitored, alerts are issued and corresponding actions are taken based on known signatures or anomalies.
+- `Rationale`: Proper security controls on the internal network might be challenging due to hardware limitations or performance requirements, yet it is critical for robots to introspect, monitor, report and act on issues that could appear on their internal networks. Security by obscurity is unfortunately a commonly accepted approach in robotics, yet, it has been demonstrated that this approach leads to critically unsecured robots. Monitoring and control capabilities should be implemented on the internal network of the robot either through the manufacturer or through additional or external solutions.
+- `Method`:   
+   - Sweep the internal robot network and enumerate entry points (e.g. open ports, existing component information, network map of components, etc).
+   - Try to match the fingerprints identified and map to known vulnerabilities.
+   - Connect to the network and attempt to perform network based attacks (e.g. ARP poisoning, denial of service on a particular component).
+   - Verify whether the robot detects and registers incidents.
+   - Verify whether the robot acts upon such events and either:
+     - the robot responds to insult proactively.
+     - an operator receives a real time alert and acts based on procedures.
+- `Notes`: *In those cases where it is not possible to implement internal robot network monitoring, alerting and response due to limitations on the robot capabilities, manufacturers should extend their capabilities or refer to third party solutions that could offer such.*
 
 #### 2.1.2 `Criteria`: Firewall
-
 - `Objective`: identify whether internal network is separated from the external by the firewall.
 - `Rationale`: Firewall can help to further protect internal nodes from the outside and ensure that they cannot accidentally leak data to the external network.
 - `Method`:
