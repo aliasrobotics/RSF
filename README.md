@@ -6,6 +6,7 @@ Based on the work of _Shyvakov, O. (2017). Developing a security framework for r
 ## Differences from _Shyvakov Robot Security Framework_:
 - `Component` becomes `aspect`
 - Content within `evaluation criteria` has been moved into further sub-sections.
+- Formalized `Firmware` layer, added `middleware` as a relevant aspect and elaborated it.
 
 ## Bibliography
 - [1] Shyvakov, O. (2017). Developing a security framework for robots (Master's thesis, University of Twente)
@@ -41,7 +42,7 @@ _Text description dumping the table from [Shyvakov_MA_EEMCS (1).pdf](https://git
 - `Rationale`: Directly accessible internal components can be physically damaged, stolen, tampered or completely disabled
 - `Method`:
    - Inspect robots body and look for accessible components (e.g. HDD, embedded devices)
-   - Open all doors which are not protected by locks and look for accessible components inside
+   - Open all doors which are not protected by **locks** and look for accessible components inside
 - `Notes`:  *All cables should also remain inside of the robot. Some components require to be partially outside of the body frame (e.g. range finding systems, WI-FI/LTE antennas) in such a case only the required part should stick out, but not the whole component*.
 
 #### 1.2.2 `Criteria`: Monitoring and alert capabilities
