@@ -7,6 +7,7 @@ Based on the work of _Shyvakov, O. (2017). Developing a security framework for r
 - `Component` becomes `aspect`
 - Content within `evaluation criteria` has been moved into further sub-sections.
 - Formalized `Firmware` layer, added `middleware` as a relevant aspect and elaborated it.
+- Reword `internal components` to `components`.
 
 ## Bibliography
 - [1] Shyvakov, O. (2017). Developing a security framework for robots (Master's thesis, University of Twente)
@@ -16,6 +17,7 @@ Based on the work of _Shyvakov, O. (2017). Developing a security framework for r
 _Text description dumping the table from [Shyvakov_MA_EEMCS (1).pdf](https://github.com/aliasrobotics/management/files/1997960/Shyvakov_MA_EEMCS.1.pdf) and reasoning about it._
 
 ## 1. `Layer`: Physical
+
 ### 1.1 `Aspect`: External ports
 #### 1.1.1 `Criteria`: Presence of external communication ports
 
@@ -35,7 +37,7 @@ _Text description dumping the table from [Shyvakov_MA_EEMCS (1).pdf](https://git
    - Try **communicating** with them, attempt fizzing to discover if robot’s state can be affected.
    - If a robot connects to a docking station to transfer some data, try to use **sniffers** to see how data exchange is being done (verify if some sensitive, configuration or control data is transferred in clear text)
 
-### 1.2 `Aspect`: Internal components
+### 1.2 `Aspect`: Components
 #### 1.2.1 `Criteria`:  Availability of internal components from outside
 
 - `Objective`: identify internal hardware that is accessible from outside without a need
