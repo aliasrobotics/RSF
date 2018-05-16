@@ -30,9 +30,9 @@ _Text description dumping the table from [Shyvakov_MA_EEMCS (1).pdf](https://git
 - `Rationale`: Unprotected external ports can let attackers in physical proximity to perform a variety of attacks and serve as an entry point for them
 - `Method`: ...
    - Connect to the identified communication ports
-   - Is authentication required to use them (e.g. Network access control for Ethernet) and do accounts meet requirements from **section 4.1?** (_review this_)
-   - Try communicating with them, attempt fizzing to discover if robot’s state can be affected.
-   - If a robot connects to a docking station to transfer some data, try to use sniffers to see how data exchange is being done (verify if some sensitive, configuration or control data is transferred in clear text)
+   - Is **authentication** required to use them (e.g. Network access control for Ethernet) and do accounts meet requirements from **section 4.1?** (_review this_)
+   - Try **communicating** with them, attempt fizzing to discover if robot’s state can be affected.
+   - If a robot connects to a docking station to transfer some data, try to use **sniffers** to see how data exchange is being done (verify if some sensitive, configuration or control data is transferred in clear text)
 
 ### 1.2 `Aspect`: Internal components
 #### 1.2.1 `Criteria`:  Availability of internal components from outside
@@ -117,8 +117,10 @@ How to
   - Connect to the external network
   - Try to perform network based attacks (e.g. network scans, ARP poisoning, denial of service) and verify whether operator receives a real-time alert and the incident is being logged and acted upon by reviewing procedures.
 
-## 3. `Layer`: Firmware and Operating system layer
-### 3.1 `Aspect`: OS
+## 3. `Layer`:  Firmware layer
+Software that is embedded in robots.
+
+### 3.1 `Aspect`: Operating System (OS)
 #### 3.1.1 `Criteria`: Underlying OS updates
 
 - `Objective`: verify that the used operating system is still supported by the manufacturer and there is a mechanism to perform system updates
@@ -128,8 +130,18 @@ How to
   - Check whether the latest security updates are applied
   - Check if there is an update mechanism present
 
-### 3.2 `Aspect`: Firmware
-#### 3.2.1 `Criteria`: Firmware updates
+### 3.2 `Aspect`: Middleware
+#### 3.1.1 `Criteria`: Middleware updates
+
+- `Objective`: verify that the used middleware is still maintained and supported by the manufacturer. Very the mechanisms to perform system updates in the middlware.
+- `Rationale`: Outdated middlewares in robotics are subject to have security vulnerabilities. This is specially true with ROS, ROS 2 and other middlewares.
+- `Method`:
+  - Check if the underlying middleware is still maintained and receive security patches
+  - Check whether the latest security updates are applied
+  - Check if there is an update mechanism present
+
+### 3.3 `Aspect`: Firmware
+#### 3.3.1 `Criteria`: Firmware updates
 
 - `Objective`: check if manufacturer firmware can be securely updated
 - `Rationale`: If new vulnerabilities are discovered it is important to ensure that there is a way to provide updates to all the devices that are already sold to customers. However, update mechanism can be circumvented by an attacker to deliver malicious update. Therefore, it is important to verify the origin of the update prior to installation.
@@ -138,7 +150,7 @@ How to
   - Verify that updates are cryptographically signed
   - Verify that the signature is verified prior to installation
 
-#### 3.2.2 `Criteria`: Integrity check
+#### 3.3.2 `Criteria`: Integrity check
 
 - `Objective`: identify whether the system performs an integrity check of critical components and takes action if they are not present or modified.
 - `Rationale`: Tampering with any of the critical components can make robot to cause physical to people and property
