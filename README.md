@@ -8,6 +8,9 @@ Based on the work of _Shyvakov, O. (2017). Developing a security framework for r
 - Content within `evaluation criteria` has been moved into further sub-sections.
 - Formalized `Firmware` layer, added `middleware` as a relevant aspect and elaborated it.
 - Reword `internal components` to `components`.
+- Added internal ports and emphasized it.
+- Modified components aspect
+- Added a new criteria for components, review logs
 
 ## Bibliography
 - [1] Shyvakov, O. (2017). Developing a security framework for robots (Master's thesis, University of Twente)
@@ -34,7 +37,6 @@ _Text description dumping the table from [Shyvakov_MA_EEMCS (1).pdf](https://git
    - Open all doors, which are not protected by locks, even those protected and look for robot components and their buses.
    - Investigate ventilation holes and see if they are wide enough to access internal communication ports.
 
-
 #### 1.1.3 `Criteria`:  Security of external and internal communication ports
 - `Objective`: verify if attackers can sniff or modify any critical data during communication with a docking station or by connecting to the ports.
 - `Rationale`: Unprotected external and internal ports can let attackers in physical proximity to perform a variety of attacks and serve as an entry point for them.
@@ -42,30 +44,36 @@ _Text description dumping the table from [Shyvakov_MA_EEMCS (1).pdf](https://git
    - Try to connect to the identified communication ports:
      - Is **authentication** required to use them (e.g. Network access control for Ethernet) and
      - Is **encryption** used in the communication?     
-     - Try **communicating** with them, attempt fizzing to discover if robot’s state can be affected.
-   - If a robot connects to a docking station to transfer some data, try to use **sniffers** to see how data exchange is being done (verify if some sensitive, configuration or control data is transferred in clear text)
+     - Try communicating with them, attempt fizzing to discover if robot’s state can be affected.
+   - If a robot connects to a docking station to transfer some data, try to use sniffers to see how data exchange is being done (verify if some sensitive, configuration or control data is transferred in clear text)
 
 ### 1.2 `Aspect`: Components
 #### 1.2.1 `Criteria`:  Availability of internal components from outside
 
-- `Objective`: identify internal hardware that is accessible from outside without a need
-- `Rationale`: Directly accessible internal components can be physically damaged, stolen, tampered or completely disabled
+- `Objective`: Identify internal hardware that is accessible from outside without a need.
+- `Rationale`: Directly accessible internal components can be physically damaged, stolen, tampered, removed or completely disabled causing the robot to misbehave. The most obvious example is the removal of critical sensors for the behavior of the robot.
 - `Method`:
-   - Inspect robots body and look for accessible components (e.g. HDD, embedded devices)
-   - Open all doors which are not protected by **locks** and look for accessible components inside
-- `Notes`:  *All cables should also remain inside of the robot. Some components require to be partially outside of the body frame (e.g. range finding systems, WI-FI/LTE antennas) in such a case only the required part should stick out, but not the whole component*.
+   - Inspect robots body and look for accessible components (e.g. sensors, actuators, computation units, user interfaces, power components, etc.).
+   - Open all doors which are not protected by locks and look for accessible components inside.
+- `Notes`:  *All cables should also remain inside of the robot. Some components require to be partially outside of the body frame (e.g. certain sensors such as range finders, or the antennas of certain wireless communication components) in such a case only the required part should stick out, but not the whole component*.
 
-#### 1.2.2 `Criteria`: Monitoring and alert capabilities
+#### 1.2.2 `Criteria`: Monitoring and alerting capabilities
 
 - `Objective`: identify whether rogue access to the internal hardware of the robot can be detected.
-- `Rationale`: Having no verification whether the internals of the robot were accessed or not means that attackers can easily tamper with any internal components or install a hardware Trojan unnoticed.
-- `Method`: ...
-   - Identify all parts of the frame that can be opened or removed to get access to the internal components
-   - Check whether there is an active (tamper switches) or passive (tamper evident screws and seals) monitoring
-capability present
-   - In case of active monitoring capability, verify that operator receives a real-time alert and the incident is
-being logged and acted upon by reviewing procedures
+- `Rationale`: Having no verification whether the internals of the robot were accessed or not means that attackers can easily tamper with any internal components or install a hardware *trojan* unnoticed.
+- `Method`:
+   - Identify all parts of the frame that can be opened or removed to get access to the internal components.
+   - Check whether there is an active (tamper switches) or passive (tamper evident screws and seals) monitoring capability present.
+   - In case of active monitoring capability, verify that operator receives a real-time alert and the incident is being logged and acted upon by reviewing procedures.
 - `Notes`: *Passive monitoring provides information upon inspection whether internals were accessed or not. However, there is still a time window between inspections when exploited robots can be abused*.
+
+#### 1.2.3 `Criteria`: Review logs of physical changes in the robot
+- `Objective`: verify the logs of the robot and look for tampering actions. Log examples include powering on/off events, connection/disconnection of physical components, sensor values or actuator actions. Detect potential tampering based on this information.
+- `Rationale`: Most robots register logs of a variety of events going from powering on/off the robot to each individual component data. Specially, some robots detect physical changes on their components and register it. Such changes could lead to an undetected tampering of the system. Reviewing the logs could lead to discovering physical tampering of the robot.
+- `Method`:
+  - Review the logs of powering on and off routines of the robot.
+  - Review the logs of physical changes in the robot.
+  - Review the logs of each individual component and look for anomalies.
 
 ## 2. `Layer`: Network
 ### 2.1 `Aspect`: Internal network
