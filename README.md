@@ -19,12 +19,12 @@ _Text description dumping the table from [Shyvakov_MA_EEMCS (1).pdf](https://git
 ### 1.1 `Aspect`: External ports
 #### 1.1.1 `Criteria`: Presence of external communication ports
 
-- `Objective`: identify presence of unprotected external ports
-- `Rationale`: Unprotected external ports can let attackers in physical proximity to perform a variety of attacks and serve as an entry point for them
+- `Objective`: identify presence of unprotected external ports.
+- `Rationale`: Unprotected external ports can let attackers in physical proximity to perform a variety of attacks and serve as an entry point for them.
 - `Method`:
-   - Inspect documentation / consult developers / inspect robot’s body and look for accessible ports (e.g. Ethernet, USB)
-   - Open all doors, which are not protected by locks and look for ports inside
-   - Investigate ventilation holes and see if they are wide enough to access internal communication ports
+   - Inspect documentation, consult developers and inspect robot's body and components. Look for accessible ports (e.g. Ethernet, USB, CAN, etc.).
+   - Open all doors, which are not protected by locks and look for ports inside.
+   - Investigate ventilation holes and see if they are wide enough to access internal communication ports.
 
 #### 1.1.2 `Criteria`:  Security of external communication ports
 - `Objective`: verify if attackers can sniff or modify any critical data during communication with a docking station or by connecting to the ports.
