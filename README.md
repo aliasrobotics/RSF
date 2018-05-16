@@ -3,6 +3,8 @@ Robot Security Framework (RSF) is a standardized methodology to perform security
 
 Based on the work of _Shyvakov, O. (2017). Developing a security framework for robots (Master's thesis, University of Twente)_.
 
+**Version**: 0.1
+
 ## Differences from _Shyvakov Robot Security Framework_:
 - `Component` becomes `aspect`
 - Content within `evaluation criteria` has been moved into further sub-sections.
