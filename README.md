@@ -6,27 +6,24 @@ Robot Security Framework (RSF) is a standardized methodology to perform security
 **Version**: 0.3
 
 ## How to cite our work
+```
 TODO: Vıctor Mayoral Vilches, Laura Alzola Kirschgens, Asier Bilbao Calvo, Alejandro Hernandez Cordero, Rodrigo Izquierdo Pisón, David Mayoral Vilches, Aday Muniz Rosas, Gorka Olalde Mendia, Lander Usategi San Juan, Irati Zamalloa Ugarte and Endika Gil-Uriarte. (2018) Introducing the Robot Security Framework (RSF), a standardized methodology to perform security assessments in robotics.
-
-## Simplified `Markdown` template to execute the assessment
-
-TODO: Compare to the last revision.
-
+```
 
 <!-- Layer 1 -->
 <table>
   <tr>
-    <th colspan="3"> 
+    <th colspan="3">
 
 ### Physical layer
    </th>
   </tr>
-  
+
   <!-- Aspect 1 -->
   <tr>
    <td>Aspect: <b>Ports</b></td>
    <td>
-     
+
    <!-- Criteria 1 -->
    <table>
     <tr>
@@ -44,7 +41,7 @@ TODO: Compare to the last revision.
     <tr>
       <td>Method</td>
       <td>
-        
+
 - Inspect documentation, consult developers and inspect robot’s body and components.
 Look for accessible ports (e.g. Ethernet, USB, CAN, etc.)
 - Open all doors, which are not protected by locks and look for ports inside</td>
@@ -71,7 +68,7 @@ perform a variety of attacks and serve as an entry point</td>
     <tr>
       <td>Method</td>
       <td>
-        
+
 - Open all doors, which are not protected by locks, even those protected, and look
 for robot components and their buses
 - Investigate ventilation holes and see if they are wide enough to access internal
@@ -97,7 +94,7 @@ to perform a variety of attacks and serve as an entry point for them</td>
     <tr>
       <td>Method</td>
       <td>
-        
+
 - Try to connect to the identified communication ports:
   - Determine if authentication is required(e.g. Network access control for Ethernet)?
   - Assess whether the communication is encripted
@@ -111,12 +108,12 @@ control data is transferred in clear text)</td>
 
    </td>
   </tr>
-  
+
   <!-- Aspect 2 -->
   <tr>
    <td>Aspect: <b>Components</b></td>
    <td>
-     
+
    <!-- Criteria 1 -->
    <table>
     <tr>
@@ -135,7 +132,7 @@ obvious example is the removal of critical sensors for the behavior of the robot
     <tr>
       <td>Method</td>
       <td>
-        
+
 - Inspect robots body and look for accessible components (e.g. sensors, actuators,
 computation units, user interfaces, power components, etc.)
 - Open all doors which are not protected by locks and look for accessible components
@@ -169,7 +166,7 @@ not means that attackers can easily tamper with any components or install a hard
     <tr>
       <td>Method</td>
       <td>
-        
+
 - Identify all parts of the frame that can be opened or removed to get access to the
 components or modules.
 - Check whether there is an active (tamper switches) or passive (tamper evident
@@ -205,7 +202,7 @@ tampering of the robot</td>
     <tr>
       <td>Method</td>
       <td>
-        
+
 - Review the logs of powering on and off routines of the robot.
 - Review the logs of physical changes in the robot.
 - Review the logs of each individual component and look for anomalies.</td>
@@ -223,17 +220,17 @@ tampering of the robot</td>
 <!-- Layer 2 -->
 <table>
   <tr>
-    <th colspan="3"> 
+    <th colspan="3">
 
 ### Network layer
    </th>
   </tr>
-  
+
   <!-- Aspect 1 -->
   <tr>
    <td>Aspect: <b>Internal robot network</b></td>
    <td>
-     
+
    <!-- Criteria 1 -->
    <table>
     <tr>
@@ -250,7 +247,7 @@ tampering of the robot</td>
     <tr>
       <td>Method</td>
       <td>
-        
+
 - Validate authentication mechanisms and verify that no known vulnerabilities are present on such.
 - If internal network is password protected, attempt common password guessing.
 - Verify whether the robot logs both successful and unsuccessful login attempts.</td>
@@ -274,7 +271,7 @@ Network fingerprinting is useful to understand the internal network structure an
     <tr>
       <td>Method</td>
       <td>
-        
+
 - Perform fingerprinting attacks on the internal networks.
 - Evaluate obtained information with the manufacturer’s available data and assessits impact.
 - If necessary, propose a mitigation strategy through the use of ”scrubbers”, whichwill  ”normalize”  the  packets,  and  remove  the  unique  identifying  traits  that  the attacker is seeking. Refer to [18] for more details about the use of ”scrubbers”.</td>
@@ -298,7 +295,7 @@ Vulnerabilities in communication protocols can allow attackers to gain unauthori
     <tr>
       <td>Method</td>
       <td>
-        
+
 - Identify all present communication capabilities by inspecting documentation, byconsulting developers or by manual analysis.
 - Analyze if used protocol versions provide encryption and mutual authentication.
 - Verify that used protocol is hardened according to industry standards.</td>
@@ -330,7 +327,7 @@ of the robot.</td>
     <tr>
       <td>Method</td>
       <td>
-        
+
 - Sweep the internal robot network and enumerate entry points (e.g. open ports, existing component information, network map of components, etc).
 - Try to match the fingerprints identified and to map known vulnerabilities.
 - Connect to the network and attempt to perform network-based attacks (e.g. ARPpoisoning, denial of service on a particular component, etc.)
@@ -340,7 +337,7 @@ of the robot.</td>
  - An operator receives a real time alert and acts based on procedures.</td>
     </tr>
    </table>
-  
+
    <!-- Criteria 5 -->
    <table>
     <tr>
@@ -359,7 +356,7 @@ external network.</td>
     <tr>
       <td>Method</td>
       <td>
-        
+
 - Inspect documentation, consult developers and inspect components which are responsible
 for external communications. Identify that such components have firewalls.
 - Inspect firewall settings and verify that no components or modules are allowed to
@@ -377,12 +374,12 @@ hotspots in robots or LTE/UMTS transceivers.</td>
    </table>
    </td>
   </tr>
-  
+
   <!-- Aspect 2 -->
   <tr>
    <td>Aspect: <b>External network</b></td>
    <td>
-     
+
    <!-- Criteria 1 -->
    <table>
     <tr>
@@ -401,7 +398,7 @@ users are able to access the network.</td>
     <tr>
       <td>Method</td>
       <td>
-        
+
 - Validate authentication mechanisms and verify that no known vulnerabilities are
 present on such.
 - If external network is password protected, attempt common password guessing.
@@ -428,7 +425,7 @@ provides fine-grained determination of an operating system and its characteristi
     <tr>
       <td>Method</td>
       <td>
-        
+
 - Perform fingerprinting attacks on the external network.
 - Evaluate obtained information with the manufacturer’s available data and assess
 its impact.
@@ -457,7 +454,7 @@ transmitted data.</td>
     <tr>
       <td>Method</td>
       <td>
-        
+
 - Identify all communication capabilities being present by inspecting documentation,
 consulting developers or by manual analysis.
 - Analyze if used protocol versions provide encryption and mutual authentication.
@@ -489,7 +486,7 @@ vulnerabilities due to the ease of their exploitation.</td>
     <tr>
       <td>Method</td>
       <td>
-        
+
 - Connect to the network that is being used by the robot for communication and scan
 all robot ports to find the open ones. Verify with manufacturer manuals whether
 their presence is required.
@@ -498,7 +495,7 @@ their presence is required.
 known vulnerabilities.</td>
     </tr>
    </table>
-    
+
    <!-- Criteria 5 -->
    <table>
     <tr>
@@ -517,7 +514,7 @@ attacks in their inception even if other security mechanisms are compromised.</t
     <tr>
       <td>Method</td>
       <td>
-        
+
 - Sweep the external robot network and enumerate entry points (e.g. open ports,
 protocol information, network map of components, robot components etc).
 - Try to match the fingerprints identified and map to known vulnerabilities.
@@ -547,17 +544,17 @@ offer such.</td>
 <!-- Layer 3 -->
 <table>
   <tr>
-    <th colspan="3"> 
+    <th colspan="3">
 
 ### Firmware layer
    </th>
   </tr>
-  
+
   <!-- Aspect 1 -->
   <tr>
    <td>Aspect: <b>Operating System (OS)</b></td>
    <td>
-     
+
    <!-- Criteria 1 -->
    <table>
     <tr>
@@ -575,7 +572,7 @@ and there is a mechanism to perform system updates.</td>
     <tr>
       <td>Method</td>
       <td>
-        
+
 - Check if the underlying OS is still maintained and receives security patches.
 - Check whether the latest security updates are applied.
 - Check if there is an update mechanism present and enabled.
@@ -585,12 +582,12 @@ and there is a mechanism to perform system updates.</td>
 
    </td>
   </tr>
-   
+
   <!-- Aspect 2 -->
   <tr>
    <td>Aspect: <b>Middleware</b></td>
    <td>
-   
+
    <!-- Criteria 1 -->
    <table>
     <tr>
@@ -616,7 +613,7 @@ widely used in many safety-critical environments and adopted by the ROS 2 middle
     <tr>
       <td>Method</td>
       <td>
-        
+
 - Determine the exact set of guidelines that are being applied.
 - Validate whether these guidelines have been implemented.</td>
     </tr>
@@ -640,7 +637,7 @@ This is specially true with ROS, ROS 2 and other robot-related middlewares</td>
     <tr>
       <td>Method</td>
       <td>
-        
+
 - Check if the underlying middleware is still maintained and receives security
 patches.
 - Check whether the latest security updates are applied.
@@ -651,7 +648,7 @@ patches.
 
   </td>
   </tr>
-   
+
   <!-- Aspect 3 -->
   <tr>
    <td>Aspect: <b>Firmware</b></td>
@@ -675,7 +672,7 @@ Therefore, it is important to verify the origin of the update prior to installat
     <tr>
       <td>Method</td>
       <td>
-        
+
 - Identify if there is a mechanism to deliver firmware updates.
 - Verify that updates are cryptographically signed.
 - Verify that the signature is verified prior to installation.</td>
@@ -691,17 +688,17 @@ Therefore, it is important to verify the origin of the update prior to installat
 <!-- Layer 4 -->
 <table>
   <tr>
-    <th colspan="3"> 
+    <th colspan="3">
 
 ### Application layer
    </th>
   </tr>
-  
+
   <!-- Aspect 1 -->
   <tr>
    <td>Aspect: <b>Authorization</b></td>
    <td>
-     
+
    <!-- Criteria 1 -->
    <table>
     <tr>
@@ -719,7 +716,7 @@ access control rights diminishes all the benefits of access control.</td>
     <tr>
       <td>Method</td>
       <td>
-        
+
 - Log in with authorized credentials and attempt to perform different actions, record
 the requests that are being made.
 - Log out and attempt to send the same requests as an unauthenticated user. Verify
@@ -730,12 +727,12 @@ same requests again. Verify whether it is successful.</td>
    </table>
    </td>
   </tr>
-   
+
   <!-- Aspect 2 -->
   <tr>
    <td>Aspect: <b>Privacy</b></td>
    <td>
-   
+
    <!-- Criteria 1 -->
    <table>
     <tr>
@@ -753,7 +750,7 @@ data.</td>
     <tr>
       <td>Method</td>
       <td>
-        
+
 - Verify that minimum Personally Identifiable Information (PII) is collected and
 transmitted over the internet.
 - Verify that if PII is collected users are made aware of it (e.g. in case of a video
@@ -780,7 +777,7 @@ Data Protection Regulation (GDPR) in the EU.</td>
     <tr>
       <td>Method</td>
       <td>
-        
+
 - Assess the legitimate interests.
 - Assess the consent.
 - Assess the information provisions.
@@ -797,7 +794,7 @@ be taken into consideration.</td>
    </table>
   </td>
   </tr>
-   
+
   <!-- Aspect 3 -->
   <tr>
    <td>Aspect: <b>Integrity</b></td>
@@ -820,7 +817,7 @@ physical damage to people and property.</td>
     <tr>
       <td>Method</td>
       <td>
-        
+
 - Consult documentation and developers to find whether integrity check for critical
 components is present.
 - Try disabling or modifying critical components (e.g. safety sensors or range finding
@@ -839,7 +836,7 @@ not be able to spot obstacles and can easily do some physical damage).</td>
    </table>
    </td>
   </tr>
-  
+
   <!-- Aspect 4 -->
   <tr>
    <td>Aspect: <b>Accounts</b></td>
@@ -861,7 +858,7 @@ and effortless way to exploit internet connected devices.</td>
     <tr>
       <td>Method</td>
       <td>
-        
+
 - Review documentation and consult developers to identify whether default passwords
 are used.
 - Attempt to log in with commonly used passwords.
@@ -876,7 +873,7 @@ and not in a sequential order.</td>
        that there is a recovery mechanism present.</td>
     </tr>
    </table>
-   
+
    <!-- Criteria 2 -->
    <table>
     <tr>
@@ -899,13 +896,13 @@ change succeeded.</td>
       <td>Note</td>
       <td>Password complexity requirements depend on the sensitivity of the application.
 In general, the minimum requirements that should be in place are:
-        
+
 - A password length of, at least, 8 characters.
 - Enforce the usage of 3 of this 4 categories:lower-case, upper-case, numbers, special
 characters.</td>
     </tr>
    </table>
-   
+
    <!-- Criteria 3 -->
    <table>
     <tr>
@@ -933,7 +930,7 @@ mechanism is being present. Accounts can be either locked out for a specific dur
 of time and/or they can be recovered by physical interaction with the robot.</td>
     </tr>
    </table>
-   
+
    <!-- Criteria 4 -->
    <table>
     <tr>
@@ -952,13 +949,13 @@ engineering or possession of the source code.</td>
     <tr>
       <td>Method</td>
       <td>
-        
+
 - Consult documentation and developers to identify whether hardcoded or backdoor
 credentials are used.
 - Analyze the source code for hardcoded or backdoor credentials.</td>
     </tr>
    </table>
-   
+
    <!-- Criteria 5 -->
    <table>
     <tr>
@@ -976,7 +973,7 @@ or lateral movement.</td>
     <tr>
       <td>Method</td>
       <td>
-        
+
 - Review the source code and documentation, consult developers and identify
 whether passwords are stored in a cleartext.</td>
     </tr>
@@ -988,7 +985,7 @@ should be 5 login attempts or less.</td>
    </table>
    </td>
   </tr>
-  
+
   <!-- Aspect 5 -->
   <tr>
    <td>Aspect: <b>Communication</b></td>
@@ -1010,13 +1007,13 @@ information (e.g. credentials, audio and video streams, private data).</td>
     <tr>
       <td>Method</td>
       <td>
-        
+
 - Intercept connection between a robot and a control center application or a cloud
 server.
 - Use protocol analyzer to verify that transmitted data is encrypted.</td>
     </tr>
    </table>
-   
+
    <!-- Criteria 2 -->
    <table>
     <tr>
@@ -1034,7 +1031,7 @@ then arbitrary replay them to achieve desired actions.</td>
     <tr>
       <td>Method</td>
       <td>
-        
+
 - Intercept the connection between the robot and a control center application or a
 cloud server.
 - Record the control or configuration packets sent to the robot.
@@ -1043,7 +1040,7 @@ cloud server.
    </table>
    </td>
   </tr>
-  
+
   <!-- Aspect 6 -->
   <tr>
    <td>Aspect: <b>3rd party libraries and components</b></td>
@@ -1065,7 +1062,7 @@ can easily introduce a vulnerability into the product where they are used.</td>
     <tr>
       <td>Method</td>
       <td>
-        
+
 - Identify which 3rd party libraries and components are used and what are their
 versions.
 - Look for known vulnerabilities in the current version.
@@ -1076,7 +1073,7 @@ no unpatched vulnerabilities.
    </table>
    </td>
   </tr>
-  
+
   <!-- Aspect 7 -->
   <tr>
    <td>Aspect: <b>Control center application</b></td>
@@ -1098,14 +1095,14 @@ control center application.</td>
     <tr>
       <td>Method</td>
       <td>
-        
+
 - Identify web interface that is being used (hosted on the robot itself or a cloud
 server).
 - Use OWASP methodology to test web application against OWASP Top 10 Web
 application vulnerabilities.</td>
     </tr>
    </table>
-   
+
    <!-- Criteria 2 -->
    <table>
     <tr>
@@ -1123,7 +1120,7 @@ phone control center application.</td>
     <tr>
       <td>Method</td>
       <td>
-        
+
 - Identify whether the robot has a mobile app that can be used to control or interact
 with it.
 - Test the application against OWASP Mobile Top 10.</td>
