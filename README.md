@@ -3,11 +3,27 @@ Robot Security Framework (RSF) is a standardized methodology to perform security
 
 ![](imgs/RSF_Diagram_generic.jpg)
 
-**Version**: 0.3
+**Version**: 1.0
 
 ## How to cite our work
 ```
-TODO: Vıctor Mayoral Vilches, Laura Alzola Kirschgens, Asier Bilbao Calvo, Alejandro Hernandez Cordero, Rodrigo Izquierdo Pisón, David Mayoral Vilches, Aday Muniz Rosas, Gorka Olalde Mendia, Lander Usategi San Juan, Irati Zamalloa Ugarte and Endika Gil-Uriarte. (2018) Introducing the Robot Security Framework (RSF), a standardized methodology to perform security assessments in robotics.
+@ARTICLE{2018arXiv180604042M,
+   author = {{Mayoral Vilches}, V. and {Alzola Kirschgens}, L. and {Bilbao Calvo}, A. and 
+	{Hern{\'a}ndez Cordero}, A. and {Izquierdo Pis{\'o}n}, R. and 
+	{Mayoral Vilches}, D. and {Mu{\~n}iz Rosas}, A. and {Olalde Mendia}, G. and 
+	{Usategi San Juan}, L. and {Zamalloa Ugarte}, I. and {Gil-Uriarte}, E. and 
+	{Tews}, E. and {Peter}, A.},
+    title = "{Introducing the Robot Security Framework (RSF), a standardized methodology to perform security assessments in robotics}",
+  journal = {ArXiv e-prints},
+archivePrefix = "arXiv",
+   eprint = {1806.04042},
+ primaryClass = "cs.CR",
+ keywords = {Computer Science - Cryptography and Security, Computer Science - Robotics},
+     year = 2018,
+    month = jun,
+   adsurl = {http://adsabs.harvard.edu/abs/2018arXiv180604042M},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
 ```
 
 <!-- Layer 1 -->
