@@ -3,15 +3,15 @@ Robot Security Framework (RSF) is a standardized methodology to perform security
 
 ![](imgs/RSF_Diagram_generic.jpg)
 
-**Version**: 1.0
+**Version**: 1.1
 
 ## How to cite our work
 ```
 @ARTICLE{2018arXiv180604042M,
-   author = {{Mayoral Vilches}, V. and {Alzola Kirschgens}, L. and {Bilbao Calvo}, A. and 
-	{Hern{\'a}ndez Cordero}, A. and {Izquierdo Pis{\'o}n}, R. and 
-	{Mayoral Vilches}, D. and {Mu{\~n}iz Rosas}, A. and {Olalde Mendia}, G. and 
-	{Usategi San Juan}, L. and {Zamalloa Ugarte}, I. and {Gil-Uriarte}, E. and 
+   author = {{Mayoral Vilches}, V. and {Alzola Kirschgens}, L. and {Bilbao Calvo}, A. and
+	{Hern{\'a}ndez Cordero}, A. and {Izquierdo Pis{\'o}n}, R. and
+	{Mayoral Vilches}, D. and {Mu{\~n}iz Rosas}, A. and {Olalde Mendia}, G. and
+	{Usategi San Juan}, L. and {Zamalloa Ugarte}, I. and {Gil-Uriarte}, E. and
 	{Tews}, E. and {Peter}, A.},
     title = "{Introducing the Robot Security Framework (RSF), a standardized methodology to perform security assessments in robotics}",
   journal = {ArXiv e-prints},
@@ -662,6 +662,50 @@ patches.
     </tr>
    </table>
 
+   <!-- Criteria 3 -->
+   <table>
+    <tr>
+      <th colspan="2">Criteria: <b>Middleware strict values validation</b></th>
+    </tr>
+    <tr>
+      <td>Objective</td>
+      <td>Verify that the used middleware introduce strict value ranges into messages.</td>
+    </tr>
+    <tr>
+      <td>Rationale</td>
+      <td>
+        Messages  define  what  data  a  listener  can  accept, but to avoid bugs and/or errors, the listener should only consider a set range of values valid for any given field. When values out of this range are received, the listener should error out in a controlled manner.
+      </td>
+    </tr>
+    <tr>
+      <td>Method</td>
+      <td>
+      a) Middleware should provide primitives for range-checking (      a message type with built-in range checks can be denied on the publisher’s side before the listener ever has to interact with it) or b) listeners must implement their own range-checking.
+    </tr>
+   </table>
+
+   <!-- Criteria 4 -->
+   <table>
+    <tr>
+      <th colspan="2">Criteria: <b>Middleware provides safe mode for computational nodes</b></th>
+    </tr>
+    <tr>
+      <td>Objective</td>
+      <td>When nodes fail, it is essential that core functionalities are still available</td>
+    </tr>
+    <tr>
+      <td>Rationale</td>
+      <td>
+       In a safe  mode, basic functionalities will be pro-vided to recover the robotic system, such as when in tele-operation.
+      </td>
+    </tr>
+    <tr>
+      <td>Method</td>
+      <td>
+      Middleware should provide primitives for implementing a safe mode within the software lifecycle. Ideally, such lifecyle should connect to the hardware (lifecyle) one and coherently provides means of recovery.
+    </tr>
+   </table>
+
   </td>
   </tr>
 
@@ -1147,11 +1191,11 @@ with it.
 </table>
 
 ## License
-GPLv3.
+[GPLv3](LICENSE).
 
 ## Glossary
 - **component**: a part of something that is discrete and identifiable with respect to combining with other parts to produce something larger (*source: ISO/IEC 24765*).
   - *Note 1 to entry*: Component can be either software or hardware. Even a component that is mainly software or hardware can be referred to as a software or hardware component respectively.
-- **module**: component with special characteristics to facilitate system design, integration, interoperability, re-use.  
+- **module**: component with special characteristics to facilitate system design, integration, interoperability, re-use.
 - **interoperability**: the capability to communicate and transfer data among modules and combine modules physically in a manner that requires the user to have little or no knowledge of the unique characteristics of those modules.
 - **firmware**: (in the context of robotics) software that is embedded in robots.
