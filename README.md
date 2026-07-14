@@ -7,7 +7,10 @@ Robot Security Framework (RSF) is a standardized methodology to perform security
 
 ## How to cite our work
 
-[![Article](https://img.shields.io/badge/article-arxiv%3A1812.09490-red.svg)](https://arxiv.org/pdf/1806.04042.pdf)
+[![Article](https://img.shields.io/badge/article-arxiv%3A1806.04042-red.svg)](https://arxiv.org/pdf/1806.04042.pdf)
+
+**HTML reading edition:** [The Robot Security Framework (RSF): a methodology to assess robot security](https://cybersecurityrobotics.com/research/robot-security-framework/)
+
 ```
 @ARTICLE{2018arXiv180604042M,
    author = {{Mayoral Vilches}, V. and {Alzola Kirschgens}, L. and {Bilbao Calvo}, A. and

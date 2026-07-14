@@ -1,0 +1,41 @@
+cff-version: 1.2.0
+message: "If you use RSF, please cite the paper below."
+title: Robot Security Framework (RSF)
+type: software
+authors:
+  - name: Alias Robotics
+repository-code: https://github.com/aliasrobotics/RSF
+url: https://cybersecurityrobotics.com/research/robot-security-framework/
+preferred-citation:
+  type: article
+  title: "Introducing the Robot Security Framework (RSF), a standardized methodology to perform security assessments in robotics"
+  authors:
+    - given-names: Víctor
+      family-names: Mayoral Vilches
+    - given-names: Laura
+      family-names: Alzola Kirschgens
+    - given-names: Asier
+      family-names: Bilbao Calvo
+    - given-names: Alejandro
+      family-names: Hernández Cordero
+    - given-names: Rodrigo
+      family-names: Izquierdo Pisón
+    - given-names: David
+      family-names: Mayoral Vilches
+    - given-names: Aday
+      family-names: Muñiz Rosas
+    - given-names: Gorka
+      family-names: Olalde Mendia
+    - given-names: Lander
+      family-names: Usategi San Juan
+    - given-names: Irati
+      family-names: Zamalloa Ugarte
+    - given-names: Endika
+      family-names: Gil-Uriarte
+    - given-names: Erik
+      family-names: Tews
+    - given-names: Andreas
+      family-names: Peter
+  year: 2018
+  journal: arXiv
+  url: https://arxiv.org/abs/1806.04042
